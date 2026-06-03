@@ -6,8 +6,8 @@
 #include <Normal_vs_Seizure_inferencing.h>
 
 // CHANGE THESE
-const char* ssid = "GalaxyA17";
-const char* password = "Roshni123";
+const char* ssid = "";
+const char* password = "";
 const char* mqtt_server = "10.115.139.138";
 const int mqtt_port = 1883;
 const char* mqtt_topic = "seizure/alert";
