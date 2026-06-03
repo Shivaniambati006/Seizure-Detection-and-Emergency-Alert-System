@@ -18,7 +18,7 @@ We built a lightweight, wearable IoT device that detects seizures in real time u
 The device continuously reads motion data from an MPU6050 sensor (accelerometer + gyroscope) amd heart rate sensor MAX30102 worn on the wrist or arm. A trained neural network runs entirely on the ESP32-C3 microcontroller, classifying every 2-second window of motion data as a seizure or normal activity. If the confidence score crosses **0.85**, the device immediately publishes an alert over MQTT, which Node-RED picks up and forwards as a **Telegram message to the caregiver**.
 The result is an end-to-end pipeline — from body motion to caregiver notification — that works in seconds, runs offline for AI inference, and costs under $10 in hardware.
 
-![Seizure Detection Flow](images/seizure_detection_flow_v2.png)
+![Seizure Detection Flow](images/trimimg-upscaled_seizure_detection_flow_v2.png)
 
 ## Hardware
 <div align="center">
