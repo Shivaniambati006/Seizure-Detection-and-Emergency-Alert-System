@@ -1,0 +1,179 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff}
+.wrap{background:#fff;padding:32px 24px 28px;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+.title-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.title-row h2{font-size:15px;font-weight:600;color:#111;letter-spacing:-.01em}
+.subtitle{font-size:11px;color:#999;margin-bottom:28px;letter-spacing:.01em}
+.flow{display:flex;align-items:stretch;gap:0}
+.step{display:flex;flex-direction:column;align-items:center;position:relative;flex:1}
+.connector{display:flex;align-items:center;padding-top:22px;flex-shrink:0;width:28px}
+.connector svg{width:28px;height:16px}
+.card{width:100%;border-radius:10px;border:1.5px solid;padding:12px 10px 10px;text-align:center;cursor:default;transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.step-num{font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:6px;opacity:.55}
+.card-title{font-size:12.5px;font-weight:600;line-height:1.25;margin-bottom:3px}
+.card-sub{font-size:10.5px;line-height:1.4;opacity:.7}
+.phase-label{font-size:9.5px;font-weight:600;letter-spacing:.07em;margin-top:9px;opacity:.4;text-transform:uppercase}
+
+.c-hw   .card{background:#f0faf5;border-color:#6ecba7;color:#0a4a35}
+.c-fw   .card{background:#f0faf5;border-color:#6ecba7;color:#0a4a35}
+.c-ai   .card{background:#f2f0fd;border-color:#9d97de;color:#2e276a}
+.c-dec  .card{background:#fff7ec;border-color:#e8a84a;color:#5a3a08}
+.c-net  .card{background:#fef0eb;border-color:#e08060;color:#5a2010}
+.c-auto .card{background:#edf5fd;border-color:#70aee0;color:#0b3a65}
+.c-alrt .card{background:#f0faf5;border-color:#6ecba7;color:#0a4a35}
+
+.c-hw   .step-num{color:#0a4a35}
+.c-fw   .step-num{color:#0a4a35}
+.c-ai   .step-num{color:#2e276a}
+.c-dec  .step-num{color:#5a3a08}
+.c-net  .step-num{color:#5a2010}
+.c-auto .step-num{color:#0b3a65}
+.c-alrt .step-num{color:#0a4a35}
+
+.c-hw   .phase-label{color:#0a4a35}
+.c-fw   .phase-label{color:#0a4a35}
+.c-ai   .phase-label{color:#2e276a}
+.c-dec  .phase-label{color:#5a3a08}
+.c-net  .phase-label{color:#5a2010}
+.c-auto .phase-label{color:#0b3a65}
+.c-alrt .phase-label{color:#0a4a35}
+
+.diamond-card{background:#fff7ec;border:1.5px solid #e8a84a;border-radius:10px;padding:12px 10px 10px;text-align:center;width:100%;cursor:default;transition:transform .15s}
+.diamond-card:hover{transform:translateY(-2px)}
+.diamond-shape{width:36px;height:36px;background:#fff7ec;border:1.5px solid #e8a84a;transform:rotate(45deg);margin:4px auto 8px;border-radius:4px}
+.diamond-inner{transform:rotate(-45deg);font-size:11px;font-weight:700;color:#5a3a08;line-height:1;padding-top:10px}
+
+.no-branch{font-size:9.5px;color:#bbb;text-align:center;margin-top:5px;letter-spacing:.02em}
+
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;padding-top:16px;border-top:1px solid #f0f0f0}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10.5px;color:#888}
+.leg-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+</style>
+
+<div class="wrap">
+  <div class="title-row">
+    <h2>Seizure Detection System</h2>
+    <span style="font-size:11px;background:#fef0eb;color:#993c1d;padding:2px 8px;border-radius:20px;font-weight:600;border:1px solid #f0b090">IoT + Edge AI</span>
+  </div>
+  <p class="subtitle">MPU6050 &rarr; ESP32-C3 &rarr; Edge Impulse &rarr; MQTT &rarr; Node-RED &rarr; Telegram</p>
+
+  <div class="flow">
+
+    <div class="step c-hw">
+      <div class="step-num">01</div>
+      <div class="card">
+        <div class="card-title">MPU6050</div>
+        <div class="card-sub">Accel + Gyro<br>via I²C · 100 Hz</div>
+      </div>
+      <div class="phase-label">Hardware</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-fw">
+      <div class="step-num">02</div>
+      <div class="card">
+        <div class="card-title">ESP32-C3</div>
+        <div class="card-sub">Edge MCU<br>WiFi enabled</div>
+      </div>
+      <div class="phase-label">Firmware</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-ai">
+      <div class="step-num">03</div>
+      <div class="card">
+        <div class="card-title">DSP + FFT</div>
+        <div class="card-sub">Spectral · RMS<br>2 s window</div>
+      </div>
+      <div class="phase-label">Edge AI</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-ai">
+      <div class="step-num">04</div>
+      <div class="card">
+        <div class="card-title">Neural net</div>
+        <div class="card-sub">Edge Impulse<br>on-device</div>
+      </div>
+      <div class="phase-label">Edge AI</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-dec">
+      <div class="step-num">05</div>
+      <div class="diamond-card">
+        <div style="display:flex;justify-content:center;margin-bottom:4px">
+          <div class="diamond-shape"><div class="diamond-inner">?</div></div>
+        </div>
+        <div class="card-title" style="color:#5a3a08">Seizure?</div>
+        <div class="card-sub" style="color:#855a20">score &gt; 0.85</div>
+      </div>
+      <div class="no-branch">↺ no → loop back</div>
+      <div class="phase-label" style="color:#5a3a08">Decision</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#e8a84a" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M16 4l6 4-6 4" stroke="#e8a84a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-net">
+      <div class="step-num">06</div>
+      <div class="card">
+        <div class="card-title">MQTT broker</div>
+        <div class="card-sub">seizure/alert<br>Mosquitto</div>
+      </div>
+      <div class="phase-label">Network</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-auto">
+      <div class="step-num">07</div>
+      <div class="card">
+        <div class="card-title">Node-RED</div>
+        <div class="card-sub">MQTT-in<br>format msg</div>
+      </div>
+      <div class="phase-label">Automation</div>
+    </div>
+
+    <div class="connector">
+      <svg viewBox="0 0 28 16" fill="none"><line x1="0" y1="8" x2="20" y2="8" stroke="#ccc" stroke-width="1.5"/><path d="M16 4l6 4-6 4" stroke="#ccc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+
+    <div class="step c-alrt">
+      <div class="step-num">08</div>
+      <div class="card">
+        <div class="card-title">Telegram</div>
+        <div class="card-sub">Alert sent<br>to caregiver</div>
+      </div>
+      <div class="phase-label">Alert</div>
+    </div>
+
+  </div>
+
+  <div class="legend">
+    <div class="leg-item"><div class="leg-dot" style="background:#6ecba7"></div>Hardware / Alert</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#9d97de"></div>Edge AI pipeline</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#e8a84a"></div>Decision gate</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#e08060"></div>Network · MQTT</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#70aee0"></div>Automation · Node-RED</div>
+    <div class="leg-item" style="margin-left:auto"><span style="color:#e8a84a;font-weight:600">- -&gt;</span>&nbsp;yes branch</div>
+  </div>
+</div>
