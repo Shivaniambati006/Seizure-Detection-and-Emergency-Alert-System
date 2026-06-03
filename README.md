@@ -3,13 +3,10 @@
 </h1>
 
 <p align="center">
-  A learning-focused Edge AI project demonstrating how machine learning models can be trained with
-  Edge Impulse, deployed on an ESP32-C3, and integrated into an IoT alerting pipeline.
+<img src="images/trimimg-upscaled_tinyml_seizure_poster (1).png" width="1100">
 </p>
 
-<p align="center">
-<img src="images/tinyml_seizure_banner.png" width="800">
-</p>
+A learning-focused Edge AI project demonstrating how machine learning models can be trained with Edge Impulse, deployed on an ESP32-C3, and integrated into an IoT alerting pipeline.
 
 ## Problem Definition Identification
 
